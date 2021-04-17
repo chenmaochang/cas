@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -19,7 +20,7 @@ public class MySaTokenConfig implements WebMvcConfigurer {
         // 注册路由拦截器，自定义验证规则
         registry.addInterceptor(new SaRouteInterceptor((request, response, handler) -> {
             // 登录验证 -- 拦截所有路由，排除多个路径 用于开放登录,注册
-            SaRouterUtil.match(Collections.singletonList("/**"), Arrays.asList("/ca/login","/ca/register"), StpUtil::checkLogin);
+            SaRouterUtil.match(Collections.singletonList("/**"), Arrays.asList("/ca/login", "/ca/register"), StpUtil::checkLogin);
 
             // 角色认证 -- 拦截以 admin 开头的路由，必须具备[admin]角色或者[super-admin]角色才可以通过认证
             SaRouterUtil.match("/admin/**", () -> StpUtil.checkRoleOr("admin", "super-admin"));
@@ -35,9 +36,10 @@ public class MySaTokenConfig implements WebMvcConfigurer {
             // 匹配 restful 风格路由
             SaRouterUtil.match("/article/get/{id}", () -> StpUtil.checkPermission("article"));
 
+            String method = ((HttpServletRequest) request.getSource()).getMethod();
             // 检查请求方式
             SaRouterUtil.match("/notice/**", () -> {
-                if (request.getMethod().equals(HttpMethod.GET.toString())) {
+                if (method.equals(HttpMethod.GET.toString())) {
                     StpUtil.checkPermission("notice");
                 }
             });
