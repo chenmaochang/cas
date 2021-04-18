@@ -82,6 +82,18 @@
 			<artifactId>sa-token-dao-redis-jackson</artifactId>
 			<version>1.16.0.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.6.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.redisson/redisson-spring-boot-starter -->
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson-spring-boot-starter</artifactId>
+			<version>3.15.3</version>
+		</dependency>
+
 
 	</dependencies>
 
