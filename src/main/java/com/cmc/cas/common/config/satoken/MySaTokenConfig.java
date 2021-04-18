@@ -1,4 +1,4 @@
-package com.cmc.cas.config.satoken;
+package com.cmc.cas.common.config.satoken;
 
 import cn.dev33.satoken.interceptor.SaRouteInterceptor;
 import cn.dev33.satoken.router.SaRouterUtil;

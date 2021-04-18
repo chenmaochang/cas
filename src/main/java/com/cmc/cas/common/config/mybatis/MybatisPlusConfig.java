@@ -1,4 +1,4 @@
-package com.cmc.cas.config.mybatis;
+package com.cmc.cas.common.config.mybatis;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
