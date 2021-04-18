@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author cmc
- * @since 2021-04-11
+ * @since 2021-04-18
  */
 public interface CaCommonUserMapper extends BaseMapper<CaCommonUser> {
 

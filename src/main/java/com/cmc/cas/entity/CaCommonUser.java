@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author cmc
- * @since 2021-04-11
+ * @since 2021-04-18
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -37,9 +37,17 @@ public class CaCommonUser implements Serializable {
     @TableField("user_name_")
     private String userName;
 
+    /**
+     * 密码
+     */
+    @TableField("password")
+    private String password;
+
 
     public static final String ID_ = "id_";
 
     public static final String USER_NAME_ = "user_name_";
+
+    public static final String PASSWORD = "password";
 
 }
