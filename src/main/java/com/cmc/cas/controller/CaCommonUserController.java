@@ -1,12 +1,9 @@
 package com.cmc.cas.controller;
 
 
-import com.cmc.cas.service.ICaCommonUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 
 /**
  * <p>
@@ -14,13 +11,11 @@ import javax.annotation.Resource;
  * </p>
  *
  * @author cmc
- * @since 2021-04-18
+ * @since 2021-04-24
  */
 @RestController
 @RequestMapping("/ca-common-user")
 public class CaCommonUserController {
 
-    @Resource
-    ICaCommonUserService caCommonUserService;
 }
 
