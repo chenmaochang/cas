@@ -36,10 +36,9 @@ public class MySaTokenConfig implements WebMvcConfigurer {
             // 匹配 restful 风格路由
             SaRouterUtil.match("/article/get/{id}", () -> StpUtil.checkPermission("article"));
 
-            String method = ((HttpServletRequest) request.getSource()).getMethod();
             // 检查请求方式
             SaRouterUtil.match("/notice/**", () -> {
-                if (method.equals(HttpMethod.GET.toString())) {
+                if (request.getMethod().equals(HttpMethod.GET.toString())) {
                     StpUtil.checkPermission("notice");
                 }
             });
