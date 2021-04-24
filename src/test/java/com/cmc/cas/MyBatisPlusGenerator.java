@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
+import com.cmc.cas.entity.BaseEntity;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -129,6 +130,8 @@ public class MyBatisPlusGenerator {
         strategy.setEntityTableFieldAnnotationEnable(true);
         strategy.setEntityColumnConstant(true);
         strategy.setChainModel(true);
+        strategy.setSuperEntityClass(BaseEntity.class);
+        strategy.setSuperEntityColumns("creator_id_", "updater_id_", "create_time_", "update_time_", "delete_flag_", "delete_flag_no_");
 
         mpg.setStrategy(strategy);
         mpg.execute();
